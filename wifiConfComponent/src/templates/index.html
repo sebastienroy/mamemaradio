@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Modifier les identifiants WiFi</title>
+</head>
+<body>
+    <h1>Modifier les identifiants WiFi</h1>
+    <form action="/update_wifi" method="post">
+        <label for="ssid">WiFi Credentials</label>
+        <div class="ssid-container">
+             <input type="text" placeholder="SSID" id="ssid" name="ssid" required><br>      
+        </div>
+        <!--<label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="password" required><br> -->
+        <div class="password-container">
+            <input type="password" placeholder="password" id="pwd" minlength="8" required>
+            <img src="/static/eye-close.png" id="eyeicon" onclick="togglePassword()">
+        </div>
+        <input type="submit" value="Enregistrer">
+    </form>
+    <script>
+        function togglePassword() {
+            var eyeicon = document.getElementById("eyeicon");
+            var pwd = document.getElementById("pwd");
+
+            pwd.type = (pwd.type === 'password') ? 'text' : 'password';
+            eyeicon.src = (pwd.type === 'password') ? '/static/eye-close.png' : '/static/eye-open.png';
+          
+        }
+ 
+     </script>
+        
+</body>
+</html>
